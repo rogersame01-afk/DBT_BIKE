@@ -6,7 +6,7 @@ DAYNAME(TO_TIMESTAMP(STARTED_AT)),
 {{days_of_theweek('STARTED_AT') }}  AS DAY_TYPE,
 MONTH(TO_TIMESTAMP(STARTED_AT)),
 {{season_of_year('STARTED_AT') }} AS SEASON_OF_YEAR
- FROM {{ source('demo', 'bike') }}
+ FROM {{ ref('stg_bike') }}
 )
 
 SELECT * FROM CTE 
